@@ -87,8 +87,8 @@ public class LogicHandler {
         return sdkConfigService.getConfig(dataId, group);
     }
     
-    public static void postConfig(String group, String dataId, String content, String type) throws HandlerException {
-        sdkConfigService.publishConfig(dataId, group, content, type);
+    public static boolean postConfig(String group, String dataId, String content, String type) throws HandlerException {
+        return sdkConfigService.publishConfig(dataId, group, content, type);
     }
     
     public static List<ConfigVO> listConfigs(String dataId, String group, Integer pageNo, Integer pageSize,

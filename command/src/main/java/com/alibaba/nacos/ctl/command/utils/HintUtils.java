@@ -10,7 +10,7 @@ public class HintUtils {
      */
     public static final String APP_NAME = "nacosctl";
     
-    public static final String VERSION_NAME = "v1.0.1-Beta";
+    public static final String VERSION_NAME = "v1.0.1";
     
     public static final String CLI_DESCRIPTION = "NacosCtl is a fast, scalable, helpful client that can let you connect to nacos-server easily.";
     
@@ -50,6 +50,8 @@ public class HintUtils {
     public static final String DESCRIPTION_CLEAR = "Remove everything on your screen. Only JLine-Input support this function";
     
     public static final String NAME_QUIT = "quit";
+    
+    public static final String NAME_QUIT_ALIAS = "stop";
     
     public static final String USAGE_QUIT = "Quit from the Cli";
     

@@ -55,8 +55,11 @@ public class NacosConfigAdd implements Runnable {
         }
         
         try {
-            LogicHandler.postConfig(group, dataId, content, type);
-            System.out.println("done");
+            if (LogicHandler.postConfig(group, dataId, content, type)) {
+                System.out.println("done");
+                return;
+            }
+            System.out.printf("publish config group:%s, dataid:%s failed%n", group, dataId);
         } catch (HandlerException e) {
             System.out.println(e.getMessage());
         }

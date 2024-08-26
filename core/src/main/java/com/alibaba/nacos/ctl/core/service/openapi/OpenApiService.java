@@ -1,12 +1,14 @@
 package com.alibaba.nacos.ctl.core.service.openapi;
 
 import com.alibaba.nacos.api.utils.StringUtils;
+import com.alibaba.nacos.ctl.core.bean.ServerVO;
 import com.alibaba.nacos.ctl.core.config.GlobalConfig;
 import com.alibaba.nacos.ctl.core.bean.ConfigVO;
 import com.alibaba.nacos.ctl.core.bean.NamespaceVO;
 import com.alibaba.nacos.ctl.core.bean.ServiceVO;
 import com.alibaba.nacos.ctl.core.exception.HandlerException;
 import com.alibaba.nacos.ctl.core.service.openapi.network.HttpProvider;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -37,6 +39,8 @@ public class OpenApiService {
     private static final String SERVICE_URL = "/ns/service";
     
     private static final String INSTANCE_URL = "/ns/instance";
+    
+    private static final String SERVER_STATUS_URL = "/core/cluster/nodes";
     
     private GlobalConfig config = GlobalConfig.getInstance();
     
@@ -164,6 +168,19 @@ public class OpenApiService {
         params.put("namespaceId", config.getNamespaceId());
         return httpProvider.nacosRequest(GET, SERVICE_URL, params);
         
+    }
+    
+    public List<ServerVO> listServers() throws HandlerException {
+        String ret = httpProvider.nacosRequest(GET, SERVER_STATUS_URL, null);
+        JsonObject root = new JsonParser().parse(ret).getAsJsonObject();
+        JsonArray data = root.getAsJsonArray("data");
+        List<ServerVO> list = new ArrayList<>();
+        data.forEach(n -> {
+            ServerVO serverVO = new Gson().fromJson(n, ServerVO.class);
+            serverVO.setVersion((String) serverVO.getExtendInfo().get("version"));
+            list.add(serverVO);
+        });
+        return list;
     }
     
     public List<NamespaceVO> listNamespaces() throws HandlerException {

@@ -1,12 +1,12 @@
 package com.alibaba.nacos.ctl.core.utils;
 
 import com.alibaba.nacos.api.common.Constants;
-import com.alibaba.nacos.client.config.impl.SpasAdapter;
-import com.alibaba.nacos.client.naming.utils.SignUtil;
-import com.alibaba.nacos.common.constant.HttpHeaderConsts;
+import com.alibaba.nacos.client.auth.ram.utils.SignUtil;
+import com.alibaba.nacos.client.auth.ram.utils.SpasAdapter;
 import com.alibaba.nacos.common.http.param.Header;
 import com.alibaba.nacos.common.utils.StringUtils;
 import com.alibaba.nacos.common.utils.UuidUtils;
+import com.alibaba.nacos.ctl.core.constant.HttpHeaderConsts;
 
 import java.util.Map;
 

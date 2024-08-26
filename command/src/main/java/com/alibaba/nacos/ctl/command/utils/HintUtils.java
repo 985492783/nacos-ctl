@@ -87,6 +87,12 @@ public class HintUtils {
     
     public static final String DESCRIPTION_SWITCH = "System switch subcommand.";
     
+    public static final String NAME_SERVER = "server";
+    
+    public static final String USAGE_SERVER = "nacos server";
+    
+    public static final String DESCRIPTION_SERVER = "Server operator.";
+    
     public static final String NAME_METRICS = "metrics";
     
     public static final String USAGE_METRICS = "get nacos metrics from prometheus http port";
@@ -108,6 +114,8 @@ public class HintUtils {
     public static final String NAME_DELETE = "delete";
     
     public static final String NAME_UPDATE = "update";
+    
+    public static final String NAME_STATUS = "status";
     
     public static final String NAME_SET = "set";
     

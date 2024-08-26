@@ -3,6 +3,7 @@ package com.alibaba.nacos.ctl.command;
 import com.alibaba.nacos.ctl.command.config.NacosConfig;
 import com.alibaba.nacos.ctl.command.instance.NacosInstance;
 import com.alibaba.nacos.ctl.command.namespace.NacosNamespace;
+import com.alibaba.nacos.ctl.command.server.NacosServer;
 import com.alibaba.nacos.ctl.command.service.NacosService;
 import com.alibaba.nacos.ctl.command.switches.NacosSwitch;
 import picocli.CommandLine;
@@ -23,7 +24,7 @@ import static com.alibaba.nacos.ctl.command.utils.HintUtils.VERSION_NAME;
 @Command(name = APP_NAME, mixinStandardHelpOptions = MIXIN_STANDARD_HELP_OPTIONS, version = VERSION_NAME, description = CLI_DESCRIPTION, commandListHeading = COMMAND_LIST_HEADING, footer = FOOTER, subcommands = {
         CommandLine.HelpCommand.class, NacosQuit.class, NacosClear.class, NacosConfig.class, NacosNamespace.class,
         NacosInstance.class, NacosSwitch.class, NacosService.class,
-        NacosUse.class,
+        NacosUse.class, NacosServer.class
         // NacosWatch.class,
 })
 public class NacosCtl extends NacosCommand {

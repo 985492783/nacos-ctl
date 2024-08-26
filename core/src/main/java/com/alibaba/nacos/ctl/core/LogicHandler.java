@@ -3,6 +3,7 @@ package com.alibaba.nacos.ctl.core;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 import com.alibaba.nacos.ctl.core.bean.ConfigVO;
 import com.alibaba.nacos.ctl.core.bean.NamespaceVO;
+import com.alibaba.nacos.ctl.core.bean.ServerVO;
 import com.alibaba.nacos.ctl.core.bean.ServiceVO;
 import com.alibaba.nacos.ctl.core.config.GlobalConfig;
 import com.alibaba.nacos.ctl.core.exception.HandlerException;
@@ -146,6 +147,10 @@ public class LogicHandler {
     
     public static List<NamespaceVO> listNamespaces() throws HandlerException {
         return openApiService.listNamespaces();
+    }
+    
+    public static List<ServerVO> listServers() throws HandlerException {
+        return openApiService.listServers();
     }
     
     public static String addNamespace(String namespaceName, String customNamespaceId, String namespaceDesc)
